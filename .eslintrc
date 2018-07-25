@@ -1,0 +1,88 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mocha": true,
+    "jest": true,
+    "mongo": true,
+    "serviceworker": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-plusplus": [
+      2,
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-console": 1,
+    "func-names": 1,
+    "comma-dangle": [
+      1,
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+      }
+    ],
+    "no-trailing-spaces": [
+      1,
+      {
+        "ignoreComments": true
+      }
+    ],
+    "arrow-parens": [
+      2,
+      "as-needed"
+    ],
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
+    "react/prop-types": [
+      1
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      2,
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to",
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
+  }
+}
