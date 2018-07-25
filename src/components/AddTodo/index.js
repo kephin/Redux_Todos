@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import shortid from 'shortid';
 
 import * as actions from 'actions';
 
-class AddTodo extends Component {
+class AddTodo extends PureComponent {
   state = {
     input: '',
   };
 
   onButtonSubmit = () => {
-    this.props.addTodo({ name: this.state.input });
+    const id = shortid.generate();
+    this.props.addTodo({
+      [id]: {
+        id,
+        name: this.state.input,
+        completed: false,
+      },
+    });
     this.setState({ input: '' });
   }
 

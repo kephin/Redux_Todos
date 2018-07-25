@@ -6,7 +6,7 @@ import Todo from 'components/Todo';
 
 class TodoList extends PureComponent {
   state = {  }
-  
+
   render() {
     if (!this.props.todos) return <div> Loading... </div>;
 
@@ -14,7 +14,12 @@ class TodoList extends PureComponent {
       <div>
         <h4>Todo List:</h4>
         <ul>
-          {this.props.todos.map(todo => <Todo key={todo.name} todo={todo} />)}
+          {Object.entries(this.props.todos).map(([key, todo]) =>
+            <Todo
+              key={key}
+              todo={todo}
+            />
+          )}
         </ul>
       </div>
     );

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Todo = props => {
-  return (
-    <li>{props.todo.name}</li>
-  );
-}
+const Todo = props => (
+  <li style={{ textDecoration: props.todo.completed ? 'line-through' : 'none' }}>
+    {props.todo.name}
+  </li>
+);
 
 export default Todo;
