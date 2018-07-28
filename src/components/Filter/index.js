@@ -13,12 +13,21 @@ class Filter extends Component {
       <p>
         Show:
         {this.state.filters.map(filter =>
-          <button key={filter} onClick={() => this.props.filterTodos(filter)}>{filter}</button>
+          <button
+            disabled={this.props.filter === filter}
+            style={{marginLeft: '4px'}}
+            key={filter}
+            onClick={() => this.props.filterTodos(filter)}
+          >
+            {filter}
+          </button>
         )}
       </p>
     );
   }
 }
+
+const mapStateToProps = ({ filter }) => ({ filter });
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -26,4 +35,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
