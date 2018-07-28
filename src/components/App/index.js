@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import TodoList from 'components/TodoList';
 import AddTodo from 'components/AddTodo';
+import Filter from 'components/Filter';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <AddTodo />
         <TodoList />
+        <Filter />
       </div>
     );
   }

@@ -12,6 +12,20 @@ class TodoList extends PureComponent {
     this.props.toggleTodoStatus(id);
   }
 
+  filterTodos = (todo, filter) => {
+    switch (filter) {
+      case 'All':
+        return true;
+      case 'Active':
+        return todo.completed === false;
+      case 'Completed':
+        return todo.completed === true;
+    
+      default:
+        break;
+    }
+  }
+  
   render() {
     if (!this.props.todos) return <div> Loading... </div>;
 
@@ -19,12 +33,14 @@ class TodoList extends PureComponent {
       <div>
         <h4>Todo List:</h4>
         <ul>
-          {Object.entries(this.props.todos).map(([key, todo]) =>
-            <Todo
-              key={key}
-              todo={todo}
-              onChangeTodoState={this.onChangeTodoState}
-            />
+          {Object.entries(this.props.todos)
+            .filter(([key, todo]) => this.filterTodos(todo, this.props.filter))
+            .map(([key, todo]) =>
+              <Todo
+                key={key}
+                todo={todo}
+                onChangeTodoState={this.onChangeTodoState}
+              />
           )}
         </ul>
       </div>
@@ -32,7 +48,7 @@ class TodoList extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ todos }) => ({ todos });
+const mapStateToProps = ({ todos, filter }) => ({ todos, filter });
 
 const mapDispatchToProps = dispatch => {
   return {
