@@ -17,7 +17,7 @@ class Filter extends Component {
             disabled={this.props.filter === filter}
             style={{marginLeft: '4px'}}
             key={filter}
-            onClick={() => this.props.filterTodos(filter)}
+            onClick={() => this.props.setVisibilityFilter(filter)}
           >
             {filter}
           </button>
@@ -31,7 +31,7 @@ const mapStateToProps = ({ filter }) => ({ filter });
 
 const mapDispatchToProps = dispatch => {
   return {
-    filterTodos(filter) { dispatch(actions.filterTodos(filter)) },
+    setVisibilityFilter(filter) { dispatch(actions.setVisibilityFilter(filter)) },
   }
 }
 

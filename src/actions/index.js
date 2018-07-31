@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO_STATUS, FILTER_TODOS } from 'actions/types';
+import { ADD_TODO, TOGGLE_TODO_STATUS, SET_VISIBILITY_FILTER } from 'actions/types';
 
 export const addTodo = newTodo => ({
   type: ADD_TODO,
@@ -10,7 +10,7 @@ export const toggleTodoStatus = id => ({
   payload: id,
 });
 
-export const filterTodos = filter => ({
-  type: FILTER_TODOS,
+export const setVisibilityFilter = filter => ({
+  type: SET_VISIBILITY_FILTER,
   payload: filter,
 });

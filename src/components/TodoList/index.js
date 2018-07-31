@@ -34,7 +34,7 @@ class TodoList extends PureComponent {
         <h4>Todo List:</h4>
         <ul>
           {Object.entries(this.props.todos)
-            .filter(([key, todo]) => this.filterTodos(todo, this.props.filter))
+            .filter(([key, todo]) => this.filterTodos(todo, this.props.visibilityFilter))
             .map(([key, todo]) =>
               <Todo
                 key={key}
@@ -48,7 +48,7 @@ class TodoList extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ todos, filter }) => ({ todos, filter });
+const mapStateToProps = ({ todos, visibilityFilter }) => ({ todos, visibilityFilter });
 
 const mapDispatchToProps = dispatch => {
   return {
